@@ -28,7 +28,8 @@ The following **optional** features are implemented:
   * [x] User that wrote the original tweet is **automatically "@" replied in compose**
 * [x] User can tap a tweet to **open a detailed tweet view**
   * [x] User can **take favorite (and unfavorite) or reweet** actions on a tweet
-* [ ] User can **see embedded image media within a tweet** on list or detail view.
+* [] User can **see embedded image media within a tweet** on list or detail view. 
+     - I got this working for some media but didn't finish making it work for all media.
 
 The following **bonus** features are implemented:
 
@@ -39,6 +40,7 @@ The following **bonus** features are implemented:
 * [x] User can **click a link within a tweet body** on tweet details view. The click will launch the web browser with relevant page opened.
 * [ ] User can view following / followers list through any profile they view.
 * [ ] User can see embedded image media within the tweet detail view
+     - I got this working for some media but didn't finish making it work for all media.
 * [x] Use the popular ButterKnife annotation library to reduce view boilerplate.
 * [ ] On the Twitter timeline, leverage the [CoordinatorLayout](http://guides.codepath.com/android/Handling-Scrolls-with-CoordinatorLayout#responding-to-scroll-events) to apply scrolling behavior that [hides / shows the toolbar](http://guides.codepath.com/android/Using-the-App-ToolBar#reacting-to-scroll).
 * [ ] User can **open the twitter app offline and see last loaded tweets**. Persisted in SQLite tweets are refreshed on every application launch. While "live data" is displayed when app can get it from Twitter API, it is also saved for use in offline mode.
