@@ -48,7 +48,7 @@ public class ReplyActivity extends AppCompatActivity {
         Glide.with(getApplicationContext()).load(tweet.user.profileImageUrl).into(ivdrProfile);
 
 
-        rUsername.setText(String.format("replying to @%s", tweet.user.name));
+        rUsername.setText(String.format("replying to @%s", tweet.user.screenName));
 
         final TextWatcher mTextEditorWatcher = new TextWatcher() {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

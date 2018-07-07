@@ -3,7 +3,6 @@ package com.codepath.apps.restclienttemplate;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +12,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.codepath.apps.restclienttemplate.models.Tweet;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import cz.msebera.android.httpclient.Header;
 
 public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> {
 
@@ -33,8 +28,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     public TweetAdapter(List<Tweet> tweets) {
         mTweets = tweets;
     }
-    private TwitterClient client;
-    public boolean fav = false;
 
     // for each row, inflate the layout and cache references into ViewHolder
     @Override
@@ -54,36 +47,12 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         Tweet tweet = mTweets.get(position);
 
         // populate the views according to this data
-        holder.tvUsername.setText(tweet.user.name);
+        holder.tvUsername.setText(String.format("%s @%s", tweet.user.name, tweet.user.screenName));
         holder.tvBody.setText(tweet.body);
         holder.tvTimestamp.setText(tweet.createdAt);
 
         Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
         Glide.with(context).load(tweet.mediaUrl).into(holder.tvImage);
-
-        client = TwitterApp.getRestClient(context);
-        client.showTweet(tweet.uid, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                //super.onSuccess(statusCode, headers, response);
-                try {
-                    Tweet tweet1 = Tweet.fromJSON(response);
-                    Log.i("fav", String.format("%s",tweet1.favorited));
-                    if (tweet1.favorited) {
-                        fav = true;
-                    }
-                } catch (JSONException e) {
-                    Log.e("retweet", "retweet failed");
-                }
-            }
-        });
-
-        if (fav) {
-            holder.imFavorite.setImageResource(R.drawable.ic_vector_heart_filled);
-        }
-        else {
-            holder.imFavorite.setImageResource(R.drawable.ic_vector_heart);
-        }
     }
 
     @Override
@@ -102,7 +71,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         @BindView(R.id.tvImage) public ImageView tvImage;
         @BindView(R.id.rLayout) public RelativeLayout rLayout;
         @BindView(R.id.ivReply) public ImageView ivReply;
-        @BindView(R.id.imFavorite) public ImageView imFavorite;
 
 
         public ViewHolder(View itemView) {
