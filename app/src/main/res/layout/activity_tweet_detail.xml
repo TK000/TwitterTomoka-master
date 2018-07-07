@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TweetDetailActivity">
+
+    <TextView
+        android:id="@+id/tvdUser"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="53dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="4dp" />
+
+    <TextView
+        android:id="@+id/tvdBody"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvdUser"
+        android:layout_marginStart="53dp"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvdCreatedAt"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tvdUser"
+        android:gravity="right"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivdProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/btnRetweet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/tvdUser"
+        android:layout_below="@+id/ivMedia"
+        android:onClick="onRetweet"
+        android:text="Retweet"
+        app:srcCompat="@drawable/ic_vector_retweet" />
+
+    <ImageView
+        android:id="@+id/ivMedia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvdBody"
+        android:layout_alignLeft="@+id/ivdProfile"
+        android:layout_marginStart="57dp"
+        app:srcCompat="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/btnFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivMedia"
+        android:layout_marginStart="100dp"
+        android:onClick="onFav"
+        android:text="Favorite" />
+</RelativeLayout>

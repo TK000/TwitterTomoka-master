@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ReplyActivity">
+
+    <TextView
+        android:id="@+id/tvdrUser"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:text="TextView"
+        android:layout_toRightOf="@+id/ivdrProfile"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="4dp" />
+
+    <ImageView
+        android:id="@+id/ivdrProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@android:color/black" />
+
+    <TextView
+        android:id="@+id/tvdrBody"
+        android:layout_width="331dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/tvdrUser"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/ivdrProfile"
+        android:autoLink="all"
+        android:linksClickable="true"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/rUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/tvdrBody"
+        android:layout_marginTop="100dp"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/tvrNewTweet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rUsername"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="140" />
+
+    <TextView
+        android:id="@+id/charrCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvrNewTweet"
+        android:text="0/140" />
+
+    <Button
+        android:id="@+id/btnrSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/charrCount"
+        android:onClick="ReplyRequest"
+        android:text="Submit" />
+
+</RelativeLayout>
